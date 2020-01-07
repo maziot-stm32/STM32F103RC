@@ -29,6 +29,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal_conf.h"
 #include "maz_com_errors.h"
+#include "maz_com_products.h"
 
 /** @addtogroup STM32F1xx_HAL_Driver
   * @{

@@ -41,6 +41,8 @@
 									<listOptionValue builtIn="false" value="../MAZ_Applications"/>
 									<listOptionValue builtIn="false" value="../MAZ_Common"/>
 									<listOptionValue builtIn="false" value="../MAZ_Drivers"/>
+									<listOptionValue builtIn="false" value="../MAZ_Drivers/MAZ_Drv_gpio"/>
+									<listOptionValue builtIn="false" value="../MAZ_Drivers/MAZ_Drv_led"/>
 									<listOptionValue builtIn="false" value="../MAZ_Modules"/>
 									<listOptionValue builtIn="false" value="../MAZ_Vendors"/>
 									<listOptionValue builtIn="false" value="../MAZ_Vendors/ST/STM32F1xx_HAL_Driver/Inc/Legacy"/>

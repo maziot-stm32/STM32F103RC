@@ -19,6 +19,7 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "maz_drv_led.h"
 
 static TaskHandle_t MAZ_App_led_tsk_handle = NULL;
 static void MAZ_App_led_task(void *pvParameters);
@@ -76,7 +77,7 @@ int main(void)
     /* Initialize all configured peripherals */
     MX_GPIO_Init();
 
-    led_init();
+    MAZ_Drv_led_init();
 
     BaseType_t xReturn = pdPASS;
     xReturn = xTaskCreate((TaskFunction_t) MAZ_App_led_task,
@@ -94,12 +95,9 @@ static void MAZ_App_led_task(void *parameter)
     /* Infinite loop */
     while (1)
     {
-        HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, LED_ON);
-        HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, LED_ON);
-        vTaskDelay(1000);
-        HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, LED_OFF);
-        HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, LED_OFF);
-        vTaskDelay(200);
+        MAZ_Drv_led_set_status(MAZDRV_LED0, MAZDRV_LED_STATUS_TOGGLE);
+        MAZ_Drv_led_set_status(MAZDRV_LED1, MAZDRV_LED_STATUS_TOGGLE);
+        vTaskDelay(500);
     }
 }
 
