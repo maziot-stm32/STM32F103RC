@@ -47,6 +47,9 @@
 									<listOptionValue builtIn="false" value="../MAZ_Vendors/ST/STM32F1xx_HAL_Driver/Inc"/>
 									<listOptionValue builtIn="false" value="../MAZ_Vendors/ST/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../MAZ_Vendors/ST/CMSIS/Device/ST/STM32F1xx/Include"/>
+									<listOptionValue builtIn="false" value="../MAZ_Vendors/FreeRTOS"/>
+									<listOptionValue builtIn="false" value="../MAZ_Vendors/FreeRTOS/include"/>
+									<listOptionValue builtIn="false" value="../MAZ_Vendors/FreeRTOS/portable/GCC/ARM_CM3"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.2084827392" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
