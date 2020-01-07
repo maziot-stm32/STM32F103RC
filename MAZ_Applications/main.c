@@ -17,6 +17,11 @@
  */
 
 #include "main.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+static TaskHandle_t MAZ_App_led_tsk_handle = NULL;
+static void MAZ_App_led_task(void *pvParameters);
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -73,15 +78,28 @@ int main(void)
 
     led_init();
 
+    BaseType_t xReturn = pdPASS;
+    xReturn = xTaskCreate((TaskFunction_t) MAZ_App_led_task,
+                          (const char*) "MAZ_App_led_task", (uint16_t) 512,
+                          (void*) NULL, (UBaseType_t) 2,
+                          (TaskHandle_t*) &MAZ_App_led_tsk_handle);
+    if (pdPASS == xReturn)
+        vTaskStartScheduler();
+
+    return MAZRET_ETSKCREATE;
+}
+
+static void MAZ_App_led_task(void *parameter)
+{
     /* Infinite loop */
     while (1)
     {
         HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, LED_ON);
         HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, LED_ON);
-        HAL_Delay(500);
+        vTaskDelay(1000);
         HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, LED_OFF);
         HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, LED_OFF);
-        HAL_Delay(500);
+        vTaskDelay(200);
     }
 }
 
