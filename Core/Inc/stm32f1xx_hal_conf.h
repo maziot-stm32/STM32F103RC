@@ -1,22 +1,21 @@
 /**
-  ******************************************************************************
-  * @file    stm32f1xx_hal_conf.h
-  * @brief   HAL configuration file.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */ 
+ ******************************************************************************
+ * @file    stm32f1xx_hal_conf.h
+ * @brief   HAL configuration file.
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F1xx_HAL_CONF_H
 #define __STM32F1xx_HAL_CONF_H
 
@@ -24,16 +23,13 @@
  extern "C" {
 #endif
 
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-
 /* ########################## Module Selection ############################## */
 /**
-  * @brief This is the list of modules to be used in the HAL driver 
-  */
-  
+ * @brief This is the list of modules to be used in the HAL driver
+ */
+
 #define HAL_MODULE_ENABLED  
-  /*#define HAL_ADC_MODULE_ENABLED   */
+/*#define HAL_ADC_MODULE_ENABLED   */
 /*#define HAL_CRYP_MODULE_ENABLED   */
 /*#define HAL_CAN_MODULE_ENABLED   */
 /*#define HAL_CAN_LEGACY_MODULE_ENABLED   */
@@ -78,55 +74,55 @@
 
 /* ########################## Oscillator Values adaptation ####################*/
 /**
-  * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
-  *        This value is used by the RCC HAL module to compute the system frequency
-  *        (when HSE is used as system clock source, directly or through the PLL).  
-  */
+ * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
+ *        This value is used by the RCC HAL module to compute the system frequency
+ *        (when HSE is used as system clock source, directly or through the PLL).
+ */
 #if !defined  (HSE_VALUE) 
-  #define HSE_VALUE    ((uint32_t)8000000) /*!< Value of the External oscillator in Hz */
+#define HSE_VALUE    ((uint32_t)8000000) /*!< Value of the External oscillator in Hz */
 #endif /* HSE_VALUE */
 
 #if !defined  (HSE_STARTUP_TIMEOUT)
-  #define HSE_STARTUP_TIMEOUT    ((uint32_t)100)   /*!< Time out for HSE start up, in ms */
+#define HSE_STARTUP_TIMEOUT    ((uint32_t)100)   /*!< Time out for HSE start up, in ms */
 #endif /* HSE_STARTUP_TIMEOUT */
 
 /**
-  * @brief Internal High Speed oscillator (HSI) value.
-  *        This value is used by the RCC HAL module to compute the system frequency
-  *        (when HSI is used as system clock source, directly or through the PLL). 
-  */
+ * @brief Internal High Speed oscillator (HSI) value.
+ *        This value is used by the RCC HAL module to compute the system frequency
+ *        (when HSI is used as system clock source, directly or through the PLL).
+ */
 #if !defined  (HSI_VALUE)
-  #define HSI_VALUE    ((uint32_t)8000000) /*!< Value of the Internal oscillator in Hz*/
+#define HSI_VALUE    ((uint32_t)8000000) /*!< Value of the Internal oscillator in Hz*/
 #endif /* HSI_VALUE */
 
 /**
-  * @brief Internal Low Speed oscillator (LSI) value.
-  */
+ * @brief Internal Low Speed oscillator (LSI) value.
+ */
 #if !defined  (LSI_VALUE) 
- #define LSI_VALUE               40000U    /*!< LSI Typical Value in Hz */
+#define LSI_VALUE               40000U    /*!< LSI Typical Value in Hz */
 #endif /* LSI_VALUE */                     /*!< Value of the Internal Low Speed oscillator in Hz
                                                 The real value may vary depending on the variations
                                                 in voltage and temperature. */
 
 /**
-  * @brief External Low Speed oscillator (LSE) value.
-  *        This value is used by the UART, RTC HAL module to compute the system frequency
-  */
+ * @brief External Low Speed oscillator (LSE) value.
+ *        This value is used by the UART, RTC HAL module to compute the system frequency
+ */
 #if !defined  (LSE_VALUE)
-  #define LSE_VALUE    ((uint32_t)32768) /*!< Value of the External oscillator in Hz*/
+#define LSE_VALUE    ((uint32_t)32768) /*!< Value of the External oscillator in Hz*/
 #endif /* LSE_VALUE */
 
 #if !defined  (LSE_STARTUP_TIMEOUT)
-  #define LSE_STARTUP_TIMEOUT    ((uint32_t)5000)   /*!< Time out for LSE start up, in ms */
+#define LSE_STARTUP_TIMEOUT    ((uint32_t)5000)   /*!< Time out for LSE start up, in ms */
 #endif /* LSE_STARTUP_TIMEOUT */
 
 /* Tip: To avoid modifying this file each time you need to use different HSE,
-   ===  you can define the HSE value in your toolchain compiler preprocessor. */
+ ===  you can define the HSE value in your toolchain compiler preprocessor. */
 
 /* ########################### System Configuration ######################### */
 /**
-  * @brief This is the HAL system configuration section
-  */     
+ * @brief This is the HAL system configuration section
+ */
 #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */           
 #define  TICK_INT_PRIORITY            ((uint32_t)0)    /*!< tick interrupt priority (lowest by default)  */            
 #define  USE_RTOS                     0
@@ -158,9 +154,9 @@
 
 /* ########################## Assert Selection ############################## */
 /**
-  * @brief Uncomment the line below to expanse the "assert_param" macro in the 
-  *        HAL drivers code
-  */
+ * @brief Uncomment the line below to expanse the "assert_param" macro in the
+ *        HAL drivers code
+ */
 /* #define USE_FULL_ASSERT    1U */
 
 /* ################## Ethernet peripheral configuration ##################### */
@@ -175,7 +171,7 @@
 #define MAC_ADDR4   0
 #define MAC_ADDR5   0
 
-/* Definition of the Ethernet driver buffers size and count */   
+/* Definition of the Ethernet driver buffers size and count */
 #define ETH_RX_BUF_SIZE                ETH_MAX_PACKET_SIZE /* buffer size for receive               */
 #define ETH_TX_BUF_SIZE                ETH_MAX_PACKET_SIZE /* buffer size for transmit              */
 #define ETH_RXBUFNB                    ((uint32_t)8)       /* 4 Rx buffers of size ETH_RX_BUF_SIZE  */
@@ -183,9 +179,9 @@
 
 /* Section 2: PHY configuration section */
 
-/* DP83848_PHY_ADDRESS Address*/ 
+/* DP83848_PHY_ADDRESS Address*/
 #define DP83848_PHY_ADDRESS           0x01U
-/* PHY Reset delay these values are based on a 1 ms Systick interrupt*/ 
+/* PHY Reset delay these values are based on a 1 ms Systick interrupt*/
 #define PHY_RESET_DELAY                 ((uint32_t)0x000000FF)
 /* PHY Configuration delay */
 #define PHY_CONFIG_DELAY                ((uint32_t)0x00000FFF)
@@ -197,7 +193,7 @@
 
 #define PHY_BCR                         ((uint16_t)0x00)    /*!< Transceiver Basic Control Register   */
 #define PHY_BSR                         ((uint16_t)0x01)    /*!< Transceiver Basic Status Register    */
- 
+
 #define PHY_RESET                       ((uint16_t)0x8000)  /*!< PHY Reset */
 #define PHY_LOOPBACK                    ((uint16_t)0x4000)  /*!< Select loop-back mode */
 #define PHY_FULLDUPLEX_100M             ((uint16_t)0x2100)  /*!< Set the full-duplex mode at 100 Mb/s */
@@ -212,7 +208,7 @@
 #define PHY_AUTONEGO_COMPLETE           ((uint16_t)0x0020)  /*!< Auto-Negotiation process completed   */
 #define PHY_LINKED_STATUS               ((uint16_t)0x0004)  /*!< Valid link established               */
 #define PHY_JABBER_DETECTION            ((uint16_t)0x0002)  /*!< Jabber condition detected            */
-  
+
 /* Section 4: Extended PHY Registers */
 #define PHY_SR                          ((uint16_t)0x10U)    /*!< PHY status register Offset                      */
 
@@ -222,16 +218,15 @@
 /* ################## SPI peripheral configuration ########################## */
 
 /* CRC FEATURE: Use to activate CRC feature inside HAL SPI Driver
-* Activated: CRC code is present inside driver
-* Deactivated: CRC code cleaned from driver
-*/
+ * Activated: CRC code is present inside driver
+ * Deactivated: CRC code cleaned from driver
+ */
 
 #define USE_SPI_CRC                     0U
 
-/* Includes ------------------------------------------------------------------*/
 /**
-  * @brief Include module's header file
-  */
+ * @brief Include module's header file
+ */
 
 #ifdef HAL_RCC_MODULE_ENABLED
 #include "stm32f1xx_hal_rcc.h"
