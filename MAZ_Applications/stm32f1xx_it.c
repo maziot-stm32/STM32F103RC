@@ -18,6 +18,9 @@
 
 #include "main.h"
 #include "stm32f1xx_it.h"
+#include "FreeRTOS.h"
+#include "port.h"
+#include "task.h"
 
 /******************************************************************************/
 /*           Cortex-M3 Processor Interruption and Exception Handlers          */
@@ -79,25 +82,9 @@ void UsageFault_Handler(void)
 }
 
 /**
- * @brief This function handles System service call via SWI instruction.
- */
-void SVC_Handler(void)
-{
-
-}
-
-/**
  * @brief This function handles Debug monitor.
  */
 void DebugMon_Handler(void)
-{
-
-}
-
-/**
- * @brief This function handles Pendable request for system service.
- */
-void PendSV_Handler(void)
 {
 
 }
@@ -108,6 +95,13 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
     HAL_IncTick();
+#if (INCLUDE_xTaskGetSchedulerState == 1 )
+    if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED) {
+#endif /* INCLUDE_xTaskGetSchedulerState */
+        xPortSysTickHandler();
+#if (INCLUDE_xTaskGetSchedulerState == 1 )
+    }
+#endif /* INCLUDE_xTaskGetSchedulerState */
 }
 
 /******************************************************************************/
