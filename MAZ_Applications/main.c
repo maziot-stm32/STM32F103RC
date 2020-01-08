@@ -64,12 +64,20 @@ int main(void)
 
 static void MAZ_App_led_task(void *parameter)
 {
+    int cnt = 0;
     /* Infinite loop */
     while (1)
     {
         MAZ_Drv_led_set_status(MAZDRV_LED0, MAZDRV_LED_STATUS_TOGGLE);
         MAZ_Drv_led_set_status(MAZDRV_LED1, MAZDRV_LED_STATUS_TOGGLE);
-        vTaskDelay(200);
+        printf("======== %d ========\r\n", cnt++);
+        printf("FILE = %s\r\n", __FILE__);
+        printf("FUNC = %s\r\n", __FUNCTION__);
+        printf("LINE = %d\r\n", __LINE__);
+        printf("DATE = %s\r\n", __DATE__);
+        printf("TIME = %s\r\n", __TIME__);
+        printf("\r\n");
+        vTaskDelay(1000);
     }
 }
 
